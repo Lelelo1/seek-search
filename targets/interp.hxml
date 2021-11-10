@@ -1,0 +1,10 @@
+
+# generate need key and tag info csv files.
+# fetch it from tagfinfo website
+
+--library haxe-c-bridge
+
+--class-path src
+-main Main
+
+--interp

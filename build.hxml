@@ -1,0 +1,8 @@
+
+# generate need key and tag info csv files.
+# fetch it from tagfinfo website
+
+--class-path src
+-main Main
+
+--interp

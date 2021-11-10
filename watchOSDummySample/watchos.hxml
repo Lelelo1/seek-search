@@ -1,0 +1,52 @@
+--library haxe-c-bridge
+--library hxcpp:git:https://github.com/haxiomic/hxcpp#patch-3
+
+--class-path src
+
+--main Main
+--dce full
+
+# log all commands as they're executed
+-D HXCPP_VERBOSE
+
+-D static_link
+
+# check required arch types in xcode
+# i368, x86_64, arm64 for watchsimulator
+
+--each
+
+-D watchsimulator
+-cpp bin/watchsim_i368
+
+--next
+
+-D watchsimulator
+-D HXCPP_M64
+-cpp bin/watchsim_x86_64
+
+--next
+ 
+-D watchsimulator
+-D HXCPP_ARM64
+-cpp bin/watchsim_arm64
+
+--next
+# for watchos device, x, y, z
+
+-D watchos
+-D static_link
+
+-cpp bin/watchos
+
+# finally, we can combine the multiple outputs into a single lib to make it easier to use in Xcode (optional step)
+--cmd lipo bin/watchos/libMain.watchos.a bin/watchsim_i368/libMain.watchsimulator.a bin/watchsim_x86_64/libMain.watchsimulator.a bin/watchsim_arm64/libMain.watchsimulator.a -create -output bin/libMain.a
+# copy the header file too
+--cmd cp bin/watchos/Main.h bin/Main.h
+
+# new syntax coming up
+ # https://community.haxe.org/t/missing-hxcpp-h-in-cpp-compilation/2975/4
+ # https://github.com/HaxeFoundation/hxcpp/issues/954
+
+# Note that two build needs to made. One that will add dependenices, which are then there in the second build.
+# Atleast it removed the vscode error on haxe-c-bridge and worked afterwards
