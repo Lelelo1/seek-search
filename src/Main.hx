@@ -1,12 +1,45 @@
 
 
+import haxe.Resource;
 import models.OSMPlace;
 import Sys.*;
+
+class TestTag {
+  var key: String;
+  var value: String;
+
+  public function new(key: String, value: String) {
+    this.key = key;
+    this.value = value;
+  }
+
+  public function toString(): String {
+    return "key: " + this.key + ", value: " + this.value; 
+  }
+}
+
+class Employees {
+  var firtName: String;
+  var lastName: String;
+}
 
 class Main {
   static function main() {
     println("seek-search");
+    // var resource = Resource.getString("placesDatabase");
+
+    var db = new HaxeLow("places.json");
     
+    println("contents...");
+    var testTags = db.col(TestTag);
+    for (tag in testTags) {
+      println(tag.toString());
+    }
+
+    testTags.push(new TestTag("keyOP", "tagOP"));
+    db.save();
+
+    println(testTags.length);
   }
 }
 

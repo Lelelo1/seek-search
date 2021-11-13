@@ -1,0 +1,24 @@
+{
+     "TestTag" : [
+         {
+             "_hxcls" : "TestTag"
+            ,"key" : "keyZ"
+            ,"value" : "tagZ"
+        }
+        ,{
+             "_hxcls" : "TestTag"
+            ,"key" : "keyZ"
+            ,"value" : "tagZ"
+        }
+        ,{
+             "_hxcls" : "TestTag"
+            ,"key" : "keyOP"
+            ,"value" : "tagOP"
+        }
+        ,{
+             "_hxcls" : "TestTag"
+            ,"key" : "keyOP"
+            ,"value" : "tagOP"
+        }
+    ]
+}

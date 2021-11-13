@@ -3,6 +3,10 @@
 # fetch it from tagfinfo website
 
 --library haxe-c-bridge
+-lib haxelow
+
+# given as: file@resourceName
+--resource places.json@placesDatabase
 
 --class-path src
 -main Main
