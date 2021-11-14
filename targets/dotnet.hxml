@@ -1,4 +1,6 @@
 
+# https://community.haxe.org/t/premiere-c-support-with-haxe/1510/2
+
 --net-lib SQLite-net.dll
 
 --class-path src

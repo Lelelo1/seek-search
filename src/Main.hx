@@ -1,7 +1,7 @@
 
+// https://github.com/praeclarum/sqlite-net
 
 import haxe.Resource;
-import models.OSMPlace;
 import Sys.*;
 
 class TestTag {
@@ -25,21 +25,8 @@ class Employees {
 
 class Main {
   static function main() {
-    println("seek-search");
-    // var resource = Resource.getString("placesDatabase");
-
-    var db = new HaxeLow("places.json");
-    
-    println("contents...");
-    var testTags = db.col(TestTag);
-    for (tag in testTags) {
-      println(tag.toString());
-    }
-
-    testTags.push(new TestTag("keyOP", "tagOP"));
-    db.save();
-
-    println(testTags.length);
+    println("seek-search");    
+  
   }
 }
 
