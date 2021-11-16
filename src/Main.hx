@@ -1,32 +1,55 @@
 
 // https://github.com/praeclarum/sqlite-net
 
+
+import sys.io.File;
 import haxe.Resource;
-import Sys.*;
-
-class TestTag {
-  var key: String;
-  var value: String;
-
-  public function new(key: String, value: String) {
-    this.key = key;
-    this.value = value;
-  }
-
-  public function toString(): String {
-    return "key: " + this.key + ", value: " + this.value; 
-  }
-}
-
-class Employees {
-  var firtName: String;
-  var lastName: String;
-}
+import models.*;
 
 class Main {
   static function main() {
-    println("seek-search");    
-  
+    
+    Sys.println("seek-search");    
+    
+    /*
+    var testTags = TestTag.createMany();
+    var text = "";
+    for(tag in testTags) {
+      text += tag.toString();
+    }
+    // https://stackoverflow.com/questions/30227811/save-app-data-on-android-ios-using-haxe-openfl
+    var filename = "./testTags.txt"; // should not use local directory, is invaid in client
+    var output = File.write(filename, false);
+    output.writeString(text);
+    output.close();
+    
+    Sys.println("read written file...");
+    var input = File.read(filename, false);
+    var gotText = input.readLine();
+    
+    Sys.println(gotText);
+    */
+  }
+  // works on android 
+  public static function testReadWrite(url: String): Void {
+    Sys.println("seek-search");    
+    
+    var testTags = TestTag.createMany();
+    var text = "";
+    for(tag in testTags) {
+      text += tag.toString();
+    }
+    // https://stackoverflow.com/questions/30227811/save-app-data-on-android-ios-using-haxe-openfl
+    var filepath = url + "/testTags.txt";
+    var output = File.write(filepath, false);
+    output.writeString(text);
+    output.close();
+    
+    Sys.println("read written file...");
+    var input = File.read(filepath, false);
+    var gotText = input.readLine();
+    
+    Sys.println(gotText);
   }
 }
 
