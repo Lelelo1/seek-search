@@ -1,0 +1,9 @@
+
+# new attempt of shorter hxml to producing unform working dll in cocoa world
+--library haxe-c-bridge
+--class-path src
+
+--main Main
+
+-D static_link
+-cpp bin

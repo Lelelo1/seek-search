@@ -1,14 +1,4 @@
 
---net-lib SQLite-net.dll
+-cmd rm -rf bin
 
---class-path src
--main Main
-
---cs bin
--D dll
-
--cmd cd bin/src
-
--cmd dotnet new console
--cmd rm Program.cs
--cmd dotnet run Main.cs
+-cmd haxe targets/dotnet.hxml

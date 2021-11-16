@@ -1,7 +1,7 @@
 
 # https://community.haxe.org/t/premiere-c-support-with-haxe/1510/2
 
---net-lib SQLite-net.dll
+--net-lib ./targets/SQLite-net.dll
 
 --class-path src
 -main Main
@@ -9,8 +9,8 @@
 --cs bin
 -D dll
 
--cmd cd bin/src
+#-cmd cd bin/src
+#-cmd dotnet new console
+#-cmd rm Program.cs
+#-cmd dotnet run Main.cs
 
--cmd dotnet new console
--cmd rm Program.cs
--cmd dotnet run Main.cs
